@@ -1,0 +1,161 @@
+.fullbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: black;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+}
+
+
+img {
+    height: 60vh;
+}
+
+.contentbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.topmenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+
+.menudropdownbutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    height: 40px;
+    width: 60px;
+}
+
+.designmenudropdownbutton {
+    background-color: lightgray;
+    width: 40px;
+    height: 2px;
+}
+
+h {
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 6vh;
+    color: white;
+}
+
+.headerdisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    height: 7vh;
+}
+
+.house {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40px;
+    width: 20%;
+}
+
+.houseroof {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid lightgray;
+}
+
+.housewalls {
+    width: 26px;
+    height: 18px;
+    border: solid lightgray 2px;
+    border-top: 0px;
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 4vh;
+}
+
+.img1 {
+    margin-right: 1em;
+}
+
+.img2 {
+    margin-right: 7em;
+    height: 50vh;
+}
+
+.dropdown.hidden {
+    display: none;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: black;
+}
+
+@media (min-aspect-ratio: 4/3) {
+    img {
+        height: 70vh;
+    }
+    .contentbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+        color: white;
+        font-size: 5.5vh;
+    }
+
+    .img2 {
+        margin: 0em;
+        height: 70vh;
+    }
+
+    .img1 {
+        margin: 0em;
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        width: 100%;
+        background-color: black;
+    }
+    
+    .dropdown p {
+        font-size: 6em;
+    }
+
+    .dropdown.hidden {
+        display: none;
+    }
+}
+
