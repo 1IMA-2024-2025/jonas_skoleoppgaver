@@ -1,0 +1,55 @@
+body {
+    margin: 0px;
+}
+
+.lessfullbox {
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+.topbox {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    border: solid grey 1px;
+    padding: 1em;
+    height: 10%;
+
+}
+
+.insidebox {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    width:100%;
+    height:80%;
+    border: solid grey 1px;
+}
+
+.insidebox2 {
+    width: 40%;
+    height: 40%;
+    border: solid red 5px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid grey 1px;
+    height: 10%;
+    background-color: red;
+    width: 100%;
+}
+
+
+
+p {
+    font-size: 24px;
+    color: gray;
+    text-align: center;
+}
+

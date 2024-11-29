@@ -1,0 +1,67 @@
+body {
+    margin: 0px;
+}
+
+.parent {
+    background-color: red;
+    text-align: center;
+    width: 50%;
+
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.child {
+    background-color: blue;
+    width: 16.5%;
+    height: 50%;
+    display:flex;
+    margin-left: 24%;
+    border-bottom: solid black 4px;
+    border-left: solid black 4px;
+}
+
+.child2 {
+    background-color: white;
+    width: 16.5%;
+    height: 50%;
+    display:flex;
+    border-bottom: solid black 4px;
+}
+.child3 {
+    background-color: red;
+    width: 16.5%;
+    height: 50%;
+    display: flex;
+    border-bottom: solid black 4px;
+    margin-right: 25%;
+    border-right: solid black 4px;
+}
+
+.child4 {
+    background-color: black;
+    width: 16.5%;
+    height: 50%;
+    display:flex;
+    border-left: solid black 4px;
+    margin-left: 24%;
+}
+
+.child5 {
+    background-color: yellow;
+    width: 16.5%;
+    height: 50%;
+    display:flex;
+}
+
+.child6 {
+    background-color: red;
+    width: 16.5%;
+    height: 50%;
+    display:flex;
+    border-right: solid black 4px;
+    margin-right: 25%;
+}

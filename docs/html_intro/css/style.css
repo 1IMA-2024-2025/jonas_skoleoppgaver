@@ -1,0 +1,21 @@
+img {
+    width: 900px;
+    height: 600px;
+}
+video {
+    width: 1200px;
+}
+h1 {
+    color: dodgerblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+p1 {
+    font-size: 200%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: red;
+    min-height: 100vh;
+}
