@@ -1,0 +1,37 @@
+body {
+    margin: 0px;
+}
+
+.fullbox {
+    background-color: whitesmoke;
+    height: 100vh;
+}
+
+.headerbox {
+    display: flex;
+    justify-content: center;
+}
+
+.contentbox {
+    margin: 50px;
+}
+
+h {
+    font-size: 32px;
+}
+
+.event1 {
+    display: flex;
+    justify-content: flex-start;
+    height: 40vh;
+}
+
+.event2 {
+    display: flex;
+    justify-content: flex-end;
+    height: 40vh;
+}
+
+.img1 {
+    height: 100%;
+}
