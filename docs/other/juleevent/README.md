@@ -10,7 +10,7 @@ I dag har vi startet på juleevent prosjektet jeg lager kanskje skisser og start
 
 I dag har jeg laget en skisse og startet å lage nettsiden.
 
-![alt text](docs/other/juleevent/images/sketch_juleeventas.png)
+![alt text](images/sketch_juleeventas.png)
 
 ### Fredag 6 Desember 2024
 
