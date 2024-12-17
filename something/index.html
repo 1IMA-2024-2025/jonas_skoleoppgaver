@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipe Puzzle Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      margin: 20px;
+    }
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(5, 80px);
+      grid-gap: 5px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    .pipe {
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+    }
+    .pipe img {
+      max-width: 70%;
+      max-height: 70%;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pipe Puzzle Game</h1>
+  <div id="game-board"></div>
+  <div id="status">Connect all the pipes!</div>
+
+  <script>
+    const boardSize = 5;
+    const pipes = ['straight', 'curve', 'start', 'end'];
+    const gameBoard = document.getElementById('game-board');
+
+    // Predefined grid layout
+    const board = [
+      [{ type: 'start', rotation: 90 }, { type: 'straight', rotation: 90 }, { type: 'curve', rotation: 90 }, { type: 'straight', rotation: 90 }, { type: 'end', rotation: 0 }],
+      [{ type: 'curve', rotation: 0 }, { type: 'straight', rotation: 0 }, { type: 'curve', rotation: 90 }, { type: 'curve', rotation: 270 }, { type: 'straight', rotation: 0 }],
+      [{ type: 'straight', rotation: 90 }, { type: 'curve', rotation: 0 }, { type: 'straight', rotation: 90 }, { type: 'straight', rotation: 90 }, { type: 'straight', rotation: 180 }],
+      [{ type: 'curve', rotation: 270 }, { type: 'straight', rotation: 0 }, { type: 'curve', rotation: 90 }, { type: 'curve', rotation: 0 }, { type: 'straight', rotation: 90 }],
+      [{ type: 'straight', rotation: 90 }, { type: 'straight', rotation: 90 }, { type: 'curve', rotation: 90 }, { type: 'straight', rotation: 180 }, { type: 'curve', rotation: 270 }]
+    ];
+
+    // Pipe connection mappings
+    const connections = {
+      'straight': {
+        0: ['left', 'right'],
+        90: ['top', 'bottom'],
+        180: ['left', 'right'],
+        270: ['top', 'bottom']
+      },
+      'curve': {
+        0: ['top', 'right'],
+        90: ['right', 'bottom'],
+        180: ['bottom', 'left'],
+        270: ['left', 'top']
+      },
+      'start': {
+        0: ['top'],
+        90: ['right'],
+        180: ['bottom'],
+        270: ['left']
+      },
+      'end': {
+        0: ['bottom'],
+        90: ['left'],
+        180: ['top'],
+        270: ['right']
+      }
+    };
+
+    // Opposite directions for validation
+    const opposites = {
+      top: 'bottom',
+      bottom: 'top',
+      left: 'right',
+      right: 'left'
+    };
+
+    // Render the game board
+    function renderBoard() {
+      gameBoard.innerHTML = '';
+      board.forEach((row, i) => {
+        row.forEach((pipe, j) => {
+          const pipeElement = document.createElement('div');
+          pipeElement.classList.add('pipe');
+          pipeElement.style.transform = `rotate(${pipe.rotation}deg)`;
+
+          const img = document.createElement('img');
+          img.src = `images/${pipe.type}.png`;
+          img.alt = `${pipe.type} pipe`;
+
+          pipeElement.appendChild(img);
+
+          if (pipe.type !== 'start' && pipe.type !== 'end') {
+            pipeElement.addEventListener('click', () => rotatePipe(i, j));
+          }
+
+          gameBoard.appendChild(pipeElement);
+        });
+      });
+    }
+
+    // Rotate a pipe
+    function rotatePipe(i, j) {
+      if (board[i][j].type !== 'start' && board[i][j].type !== 'end') {
+        board[i][j].rotation = (board[i][j].rotation + 90) % 360;
+        renderBoard();
+        checkWin();
+      }
+    }
+
+    // Check for win condition using DFS
+    function checkWin() {
+      const visited = Array.from({ length: boardSize }, () => Array(boardSize).fill(false));
+
+      // Find the start pipe
+      let startX, startY;
+      for (let i = 0; i < boardSize; i++) {
+        for (let j = 0; j < boardSize; j++) {
+          if (board[i][j].type === 'start') {
+            startX = i;
+            startY = j;
+          }
+        }
+      }
+
+      function dfs(x, y) {
+        if (x < 0 || y < 0 || x >= boardSize || y >= boardSize || visited[x][y]) return false;
+
+        visited[x][y] = true;
+
+        const pipe = board[x][y];
+        const dirs = connections[pipe.type][pipe.rotation];
+
+        for (const dir of dirs) {
+          let newX = x, newY = y;
+
+          if (dir === 'top') newX--;
+          if (dir === 'bottom') newX++;
+          if (dir === 'left') newY--;
+          if (dir === 'right') newY++;
+
+          if (newX >= 0 && newY >= 0 && newX < boardSize && newY < boardSize) {
+            const neighbor = board[newX][newY];
+            const oppositeDir = opposites[dir];
+            if (connections[neighbor.type][neighbor.rotation].includes(oppositeDir)) {
+              if (neighbor.type === 'end') return true;
+              if (dfs(newX, newY)) return true;
+            }
+          }
+        }
+        return false;
+      }
+
+      if (dfs(startX, startY)) {
+        document.getElementById('status').textContent = 'You won! The start is connected to the end!';
+      } else {
+        document.getElementById('status').textContent = 'Keep going! The pipes are not connected.';
+      }
+    }
+
+    // Initial render
+    renderBoard();
+  </script>
+</body>
+</html>

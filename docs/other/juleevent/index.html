@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juleevent</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/originals/db/df/51/dbdf515e1f2b9f17323f8a0c8b2bc884.png">
 </head>
 <body>
     <div class="fullbox">
@@ -12,29 +13,47 @@
             <h>Juleevent AS</h>
         </div>
         <div class="contentbox">
-            <div class="event">
+            <div class="event" onclick="toggleDropdown(this)">
                 <img src="https://media.istockphoto.com/id/1357890877/vector/cute-dancing-santa-claus-christmas-vector-illustration.jpg?s=612x612&w=0&k=20&c=dLLi6isaG0Qaf_8xGVVE9ishEuk5kWKWwgjxBRgj6fw=" class="img1">
                 <div class="textbox">Julenissebesøk</div>
             </div>
-            <div class="event">
+            <div class="dropdown">
+                <p>Besøk fra julenissen med gaver og moro for barna.<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit numquam inventore, tempore error fugiat delectus voluptatum officiis nisi id asperiores temporibus pariatur molestiae et quam! Illo iusto sed sit!</p>
+            </div>
+
+            <div class="event" onclick="toggleDropdown(this)">
                 <div class="textbox">Julemarked</div>
                 <img src="https://thebeautynest.no/wp-content/uploads/2016/12/julekuler.png" class="img1">
             </div>
-            <div class="event">
-                <div class="image2box">
-                    <img src="https://www.kinsarvik.no/content/uploads/2021/02/Juleglogg.jpg-2400x1400-1-1024x597.jpg" class="img2">
-                </div>
+            <div class="dropdown">
+                <p>Stort julemarked med håndverk, mat og drikke.<br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci tenetur voluptatum minus mollitia dignissimos magni, unde enim ex, earum necessitatibus officiis aspernatur molestias facilis quod itaque temporibus. Placeat, eius veniam.</p>
+            </div>
+
+            <div class="event" onclick="toggleDropdown(this)">
+                <img src="https://www.kinsarvik.no/content/uploads/2021/02/Juleglogg.jpg-2400x1400-1-1024x597.jpg" class="img2">
                 <div class="textbox">Julegløgg</div>
             </div>
-            <div class="event">
+            <div class="dropdown">
+                <p>Prøv vår fantastiske og unike Julegløgg når som helst<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat laboriosam pariatur id amet! Minima assumenda obcaecati sunt ex consectetur, porro eum similique tempore harum nobis optio dolores enim aliquam?<br><a href="https://gladkokken.no/oppskrifter/juleglogg-smaken-av-jul" target="_blank">finn oppskriften her</a></p>
+            </div>
+
+            <div class="event" onclick="toggleDropdown(this)">
                 <div class="textbox">Pynting av juletre</div>
                 <img src="https://i.pinimg.com/originals/db/df/51/dbdf515e1f2b9f17323f8a0c8b2bc884.png" class="img1">
             </div>
-            <div class="event">
+            <div class="dropdown">
+                <p>Bli med på pynting av juletre med lys og kuler.<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, alias numquam soluta facere quod dicta pariatur optio enim ratione repellendus tenetur eveniet dolorum dolorem ea obcaecati cupiditate atque amet consequuntur!</p>
+            </div>
+
+            <div class="event" onclick="toggleDropdown(this)">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3B1-HnBebHXb3elGSUstgAmlCa_giYkzA&s" class="img1">
                 <div class="textbox">Juleverksted</div>
             </div>
+            <div class="dropdown">
+                <p>Lag dine egne julegaver og pynt i juleverkstedet.<br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam dolorem recusandae, quae repellendus, suscipit sed qui officia, similique blanditiis excepturi porro! Vero saepe beatae, quae quia consequuntur deleniti iusto qui.</p>
+            </div>
         </div>
     </div>
+    <script src="js/dropdown.js"></script>
 </body>
 </html>
